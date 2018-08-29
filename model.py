@@ -121,8 +121,8 @@ class Decoder(object):
 
 def build_transformer(source_vocabulary_size, target_vocabulary_size, max_length, share_word_embedding=False, 
                         n=6, h=8, d_k=64, d_v=64, d_model=512, optimizer="adam", null_token_value=0):
-    source_input = Input(shape=(max_length,), name="source_input")
-    target_input = Input(shape=(max_length,), name="target_input")
+    source_input = Input(shape=(None,), name="source_input")
+    target_input = Input(shape=(None,), name="target_input")
 
     enc_input = Lambda(lambda x:x[:,1:])(source_input)
     dec_input  = Lambda(lambda x:x[:,:-1])(target_input)
