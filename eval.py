@@ -13,7 +13,7 @@ def inference(inference_model, source):
     source = source.reshape(1, -1)
 
     current_word = None
-    for t in range(MAXIMUM_TEXT_LENGTH):
+    for t in range(MAXIMUM_TEXT_LENGTH-1):
         data = [source, output_sentence_array]
 
         output = inference_model.predict(data)
